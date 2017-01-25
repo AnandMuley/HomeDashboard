@@ -1,2 +1,4 @@
 .idea
 build
+.gradle
+investments/src/main/webapp/bower_components

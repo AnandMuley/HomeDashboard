@@ -1,0 +1,28 @@
+{
+  "name": "investments",
+  "homepage": "https://github.com/AnandMuley/HomeDashboard",
+  "authors": [
+    "Anand Muley"
+  ],
+  "description": "An investment tracker app",
+  "main": "",
+  "keywords": [
+    "investments"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1",
+    "angular-resource": "^1.6.1",
+    "angular-material": "^1.1.1",
+    "angular-cookies": "^1.6.1"
+  }
+}

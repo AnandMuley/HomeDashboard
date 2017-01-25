@@ -1,0 +1,61 @@
+def SpringVersion = '4.3.2.RELEASE'
+def SpringDataMongoVersion = '1.6.0.RELEASE'
+def SpockVersion = '1.1-groovy-2.4-rc-3'
+def JerseyVersion = '2.25'
+def TomcatVersion = '8.5.4'
+
+ext {
+    testng = "org.testng:testng:6.9.4"
+    jackson = 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.0.1'
+
+    jmock = [
+            core  : "org.jmock:jmock:2.8.1",
+            legacy: "org.jmock:jmock-legacy:2.8.1"
+    ]
+
+    json = 'org.json:json:20140107'
+
+    spring = [
+            web           : "org.springframework:spring-web:${SpringVersion}",
+            webmvc        : "org.springframework:spring-webmvc:${SpringVersion}",
+            core          : "org.springframework:spring-core:${SpringVersion}",
+            beans         : "org.springframework:spring-beans:${SpringVersion}",
+            expression    : "org.springframework:spring-expression:${SpringVersion}",
+            contextSupport: "org.springframework:spring-context-support:${SpringVersion}",
+            jdbc          : "org.springframework:spring-jdbc:${SpringVersion}",
+            mongo         : "org.springframework.data:spring-data-mongodb:${SpringDataMongoVersion}",
+            test          : "org.springframework:spring-test:${SpringVersion}",
+            jpa           : 'org.springframework.data:spring-data-jpa:1.8.1.RELEASE',
+            security      : [
+                    web   : "org.springframework.security:spring-security-web:${SpringVersion}",
+                    core  : "org.springframework.security:spring-security-core:${SpringVersion}",
+                    config: "org.springframework.security:spring-security-config:${SpringVersion}"
+            ]
+    ]
+
+    jersey = [
+            server          : "org.glassfish.jersey.core:jersey-server:$JerseyVersion",
+            inmemorytest    : "org.glassfish.jersey.test-framework:jersey-test-framework-core:$JerseyVersion",
+            spring          : "org.glassfish.jersey.ext:jersey-spring3:$JerseyVersion",
+            containerservlet: "org.glassfish.jersey.containers:jersey-container-servlet:$JerseyVersion",
+            jackson         : "org.glassfish.jersey.media:jersey-media-json-jackson:$JerseyVersion"
+    ]
+
+    hamcrest = [
+            core   : 'org.hamcrest:hamcrest-core:1.3',
+            library: 'org.hamcrest:hamcrest-library:1.3'
+    ]
+
+    groovy = 'org.codehaus.groovy:groovy-all:2.4.7'
+
+    spock = [
+            core     : "org.spockframework:spock-core:$SpockVersion",
+            cglib    : 'cglib:cglib-nodep:3.2.4',
+            objenesis: 'org.objenesis:objenesis:2.4'
+    ]
+
+    apache = [
+            tomcat : "org.apache.tomcat:tomcat-catalina:$TomcatVersion"
+    ]
+
+}

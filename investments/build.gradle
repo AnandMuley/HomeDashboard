@@ -1,43 +1,31 @@
-group "services"
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
+    }
+}
 
-apply plugin: 'groovy'
-apply plugin: 'jacoco'
-apply plugin: 'jetty'
-
-apply from: rootProject.file("external-dependencies.gradle")
-apply from: rootProject.file("deployment.gradle")
-
-sourceCompatibility = 1.8
-
-httpPort = 8090
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
 
 jar {
-    manifest {
-        attributes 'Implementation-Title': 'User Service'
-    }
-}
-
-jacoco {
-    toolVersion = "0.7.6.201602180812"
-    reportsDir = file("$buildDir/coverageReport")
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled false
-        csv.enabled false
-        html.destination "${buildDir}/jacocoHtml"
-    }
+    baseName = 'gs-accessing-mongodb-data-rest'
+    version = '0.1.0'
 }
 
 repositories {
     mavenCentral()
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 dependencies {
-    compile jersey.server, jersey.spring, jersey.containerservlet, jersey.jackson
-    compile json,apache.tomcat
-    compile spring.web, spring.core, spring.test
-    compile spring.mongo, spring.webmvc
-    testCompile spock.core, spock.cglib, spock.objenesis, groovy, jersey.inmemorytest
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
 }

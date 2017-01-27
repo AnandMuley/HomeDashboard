@@ -1,4 +1,5 @@
 def SpringVersion = '4.3.2.RELEASE'
+def SpringDataMongoVersion = '1.6.0.RELEASE'
 def SpockVersion = '1.1-groovy-2.4-rc-3'
 def JerseyVersion = '2.25'
 def TomcatVersion = '8.5.4'
@@ -21,9 +22,16 @@ ext {
             beans         : "org.springframework:spring-beans:${SpringVersion}",
             expression    : "org.springframework:spring-expression:${SpringVersion}",
             contextSupport: "org.springframework:spring-context-support:${SpringVersion}",
-            jdbc          : "org.springframework:spring-jdbc:${SpringVersion}"
+            jdbc          : "org.springframework:spring-jdbc:${SpringVersion}",
+            mongo         : "org.springframework.data:spring-data-mongodb:${SpringDataMongoVersion}",
+            test          : "org.springframework:spring-test:${SpringVersion}",
+            jpa           : 'org.springframework.data:spring-data-jpa:1.8.1.RELEASE',
+            security      : [
+                    web   : "org.springframework.security:spring-security-web:${SpringVersion}",
+                    core  : "org.springframework.security:spring-security-core:${SpringVersion}",
+                    config: "org.springframework.security:spring-security-config:${SpringVersion}"
+            ]
     ]
-
 
     jersey = [
             server          : "org.glassfish.jersey.core:jersey-server:$JerseyVersion",
@@ -47,7 +55,7 @@ ext {
     ]
 
     apache = [
-            tomcat: "org.apache.tomcat:tomcat-catalina:$TomcatVersion"
+            tomcat : "org.apache.tomcat:tomcat-catalina:$TomcatVersion"
     ]
 
 }

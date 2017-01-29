@@ -11,6 +11,11 @@ public class Investment {
     private String name;
     private Amount amount;
 
+    public Investment(String name, Amount amount) {
+        this.name = name;
+        this.amount = amount;
+    }
+
     public String getId() {
         return id;
     }

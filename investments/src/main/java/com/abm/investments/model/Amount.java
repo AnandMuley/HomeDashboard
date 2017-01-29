@@ -1,17 +1,19 @@
 package com.abm.investments.model;
 
-import java.util.Currency;
-
 public class Amount {
 
     private Double value;
-    private Currency currency;
+    private String currency = "INR";
+
+    public Amount(Double value) {
+        this.value = value;
+    }
 
     public Double getValue() {
         return value;
     }
 
-    public Currency getCurrency() {
+    public String getCurrency() {
         return currency;
     }
 

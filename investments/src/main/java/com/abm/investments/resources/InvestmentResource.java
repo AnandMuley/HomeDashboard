@@ -1,5 +1,7 @@
 package com.abm.investments.resources;
 
+import com.abm.investments.dtos.InvestmentDto;
+import com.abm.investments.model.Amount;
 import com.abm.investments.model.Investment;
 import com.abm.investments.repositories.InvestmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +20,12 @@ public class InvestmentResource {
 
     @GET
     public Response getAll() {
-        return Response.ok(investmentRepository.findAll().stream()).build();
+        return Response.ok(investmentRepository.findAll()).build();
     }
 
     @POST
-    public Response create(Investment investment) {
+    public Response create(InvestmentDto investmentDto) {
+        Investment investment = new Investment(investmentDto.getName(), new Amount(investmentDto.getAmount()));
         return Response.ok(investmentRepository.save(investment)).build();
     }
 

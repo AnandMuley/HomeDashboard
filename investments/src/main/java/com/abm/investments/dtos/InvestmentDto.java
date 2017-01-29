@@ -1,21 +1,17 @@
 package com.abm.investments.dtos;
 
-import java.util.Currency;
-
 public class InvestmentDto {
 
     private String id;
     private String name;
     private Double amount;
 
+    public InvestmentDto() {
+    }
+
     public InvestmentDto(String id, String name) {
         this.id = id;
         this.name = name;
-    }
-
-    public InvestmentDto(String name, Double amount) {
-        this.name = name;
-        this.amount = amount;
     }
 
     public String getId() {

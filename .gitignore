@@ -1,4 +1,4 @@
 .idea
 build
 .gradle
-investments/src/main/webapp/bower_components
+investment-service/src/main/webapp/bower_components

@@ -8,8 +8,8 @@ controllers.controller('NavigationController',
 			path : 'home'
 		},
 		{
-			name : 'investments',
-			path : 'investments'
+			name : 'manage',
+			path : 'manage'
 		}
 	];
 	

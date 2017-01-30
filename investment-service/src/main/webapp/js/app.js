@@ -12,7 +12,7 @@ app.config(['$routeProvider', '$mdIconProvider', '$mdThemingProvider', '$locatio
         }).when('/home', {
             templateUrl: 'views/Home.html',
             controller: 'HomeController'
-        }).when('/investments', {
+        }).when('/manage', {
             templateUrl: 'views/ManageInvestments.html',
             controller: 'InvestmentManagementController'
         });
@@ -24,4 +24,4 @@ app.config(['$routeProvider', '$mdIconProvider', '$mdThemingProvider', '$locatio
             'hue-3': 'A100'
         }).accentPalette('amber').warnPalette('red');
 
-    }]).value('BaseUrl', 'http://localhost:8090/investments/rest/');
+    }]).value('BaseUrl', 'http://localhost:8090/investment-service/rest/');

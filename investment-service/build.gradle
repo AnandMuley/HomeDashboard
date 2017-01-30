@@ -13,7 +13,7 @@ httpPort = 8090
 
 jar {
     manifest {
-        attributes 'Implementation-Title': 'User Service'
+        attributes 'Implementation-Title': 'Investment Service'
     }
 }
 

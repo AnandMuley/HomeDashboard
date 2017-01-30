@@ -6,14 +6,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "investments")
 public class Investment {
 
+    public enum Type {
+        SIP, MONTHLY, QUARTERLY, ADHOC
+    }
+
     @Id
     private String id;
     private String name;
     private Amount amount;
+    private Type type;
 
-    public Investment(String name, Amount amount) {
+    public Investment(String name, Amount amount, Type type) {
         this.name = name;
         this.amount = amount;
+        this.type = type;
     }
 
     public String getId() {
@@ -40,12 +46,17 @@ public class Investment {
         this.amount = amount;
     }
 
+    public Type getType() {
+        return type;
+    }
+
     @Override
     public String toString() {
         return "Investment{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", amount=" + amount +
+                ", type=" + type +
                 '}';
     }
 }

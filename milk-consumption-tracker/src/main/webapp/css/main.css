@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+
+.body-container{
+  padding: 20px;
+}
+
+.month{
+  font-size: 50% !important;
+}

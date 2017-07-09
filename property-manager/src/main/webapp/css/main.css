@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+.body-container{
+  padding: 20px;
+}
+
+.month{
+  font-size: 50% !important;
+}
+
+.brand-logo{
+  margin-left:3.5%;
+  color:#00796b;
+}
+
+.md-card>img{
+  width: 80%;
+}

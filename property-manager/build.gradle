@@ -31,6 +31,6 @@ repositories {
 dependencies {
   compile json,scala.core
   compile spring.web, spring.core, spring.test, jersey.server, jackson,spring.webmvc
-  compile jersey.spring, spring.mongo
+  compile jersey.spring, spring.mongo,jersey.jackson
   testCompile spock.core,spock.cglib,spock.objenesis,groovy,jersey.testcore,jersey.provider
 }

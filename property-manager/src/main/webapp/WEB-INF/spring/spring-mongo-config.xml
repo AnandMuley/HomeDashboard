@@ -8,7 +8,7 @@
           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<mongo:mongo host="127.0.0.1" port="27017" />
 	<mongo:db-factory dbname="homedashboard" />
-	<mongo:repositories base-package="com.abm.propertymanager.repository"/>
+	<mongo:repositories base-package="com.propertymanager.repositories"/>
 	<!-- Removing _class from Collections -->
 
 	<bean id="mappingContext"

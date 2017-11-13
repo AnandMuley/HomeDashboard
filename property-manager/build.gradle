@@ -1,8 +1,7 @@
-apply plugin: 'java'
 apply plugin: 'war'
-apply plugin: 'groovy'
 apply plugin: 'jacoco'
 apply plugin: 'jetty'
+apply plugin: 'scala'
 
 sourceCompatibility = 1.8
 
@@ -30,9 +29,8 @@ repositories {
 }
 
 dependencies {
-  compile json
-  compile spring.web, spring.core, spring.test, jersey.server, jackson, jersey.inmemorytest
-  compile jersey.spring, spring.mongo, spring.webmvc, hamcrest.core, hamcrest.library, jmock.core,jmock.legacy
-  testCompile testng, jmock.core,jmock.legacy, hamcrest.core, hamcrest.library,groovy
-  testCompile spock.core,spock.cglib,spock.objenesis
+  compile json,scala.core
+  compile spring.web, spring.core, spring.test, jersey.server, jackson,spring.webmvc
+  compile jersey.spring, spring.mongo
+  testCompile spock.core,spock.cglib,spock.objenesis,groovy,jersey.testcore,jersey.provider
 }

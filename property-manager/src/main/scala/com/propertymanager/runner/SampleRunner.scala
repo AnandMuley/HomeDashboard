@@ -1,12 +1,13 @@
 package com.propertymanager.runner
 
 import com.propertymanager.domain.Investment
+import com.propertymanager.model.Payment
 
 object SampleRunner {
 
   def main(args: Array[String]): Unit = {
-    val investment = new Investment("Ronnie", 1200)
-    println(s" ID : ${investment.amount}")
+    val investment = new Payment("Life Republic",1200,"CHEQUE",new java.util.Date(),"LICHFL")
+    println(s" ID : ${investment.id}")
   }
 
 }

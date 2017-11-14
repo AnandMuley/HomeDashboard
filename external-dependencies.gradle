@@ -6,7 +6,7 @@ def scalaVersion = '2.12.4'
 
 ext {
   testng = "org.testng:testng:6.9.4"
-  jackson = 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.0.1'
+  jackson = 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.9.2'
 
   jmock = [
     core : "org.jmock:jmock:2.8.1",

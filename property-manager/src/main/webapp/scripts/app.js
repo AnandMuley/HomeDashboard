@@ -1,21 +1,30 @@
 var app = angular.module('WebUI',
   ['ngRoute',
     'UIControllers','ngMaterial',
-    'ngCookies']);
+    'ngCookies','myAppServices']);
+
+var services = angular.module('myAppServices',['ngResource']);
 
 app.config(['$routeProvider', function ($routeProvider) {
 
   $routeProvider.when('/', {
     templateUrl: 'views/Home.html',
     controller: 'HomeController'
+  }).when('/payments',{
+    templateUrl: 'views/Payments.html',
+    controller : 'PaymentsController'
   });
 
 }]);
 
 var controllers = angular.module('UIControllers', []);
-controllers.controller('AppCtrl',['$scope',function($scope){
+controllers.controller('AppCtrl',['$scope','$location',function($scope,$location){
 
   $scope.currentNavItem = 'page1';
+
+  $scope.renderPage = function(pageName){
+    $location.path(pageName);
+  }
 
   $scope.navItems = [
     {
@@ -29,7 +38,13 @@ controllers.controller('AppCtrl',['$scope',function($scope){
     {
       name:"Settings",
       link:"settings"
+    },
+    {
+      name:"Payments",
+      link:"payments"
     }
   ];
 
 }]);
+
+app.value('RestApiBasePath','rest/');

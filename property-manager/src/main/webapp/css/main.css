@@ -1,5 +1,14 @@
 @CHARSET "UTF-8";
 
+.home-dash-table{
+  width: 60%;
+}
+
+.home-dash-table thead th,tbody td{
+  text-align: left;
+  padding-left: 10px;
+}
+
 .body-container{
   padding: 20px;
 }

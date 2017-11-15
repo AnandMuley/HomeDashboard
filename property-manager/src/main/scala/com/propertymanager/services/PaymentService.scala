@@ -1,17 +1,22 @@
 package com.propertymanager.services
 
-import java.util
-
+import com.propertymanager.dtos.Summary
 import com.propertymanager.model.Payment
 import com.propertymanager.repositories.PaymentRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
+import scala.collection.JavaConverters._
+
 @Service
 class PaymentService(@Autowired paymentRepository: PaymentRepository) {
 
-  def save(payment: Payment): Payment = paymentRepository.save(payment)
+  def save(payment: Payment) = paymentRepository.save(payment)
 
-  def getDetails(): util.List[Payment] = paymentRepository.findAll()
+  def getDetails() = {
+    val payments = paymentRepository.findAll()
+    val total = payments.asScala.toList.map(p => p.getAmount).sum
+    new Summary(payments, total)
+  }
 
 }

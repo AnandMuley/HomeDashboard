@@ -1,0 +1,17 @@
+
+<table class="home-dash-table" layout-md="col" flex="auto" border="1">
+  <thead>
+    <tr layout-md="row">
+      <th flex="10">Sr.No</th>
+      <th flex="20">Recipient</th>
+      <th flex="30">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr layout-md="row" ng-repeat="payment in summary.items">
+      <td flex="20">{{$index+1}}</td>
+      <td flex="20">{{payment.recipient}}</td>
+      <td flex="30">{{payment.amount}}</td>
+    </tr>
+  </tbody>
+</table>

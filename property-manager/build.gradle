@@ -5,6 +5,8 @@ apply plugin: 'scala'
 
 sourceCompatibility = 1.8
 
+httpPort=8090
+
 jar {
   manifest {
     attributes 'Implementation-Title': 'Property Tracker'

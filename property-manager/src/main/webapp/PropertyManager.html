@@ -17,14 +17,18 @@
 <script type="text/javascript" src="node_modules/angular-material/angular-material.min.js"></script>
 <script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
 <script type="text/javascript" src="node_modules/angular-cookies/angular-cookies.js"></script>
+<script type="text/javascript" src="node_modules/angular-resource/angular-resource.js"></script>
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <script type="text/javascript" src="scripts/app.js"></script>
 <!-- Controllers -->
 <script type="text/javascript" src="scripts/controllers/HomeController.js"></script>
 <script type="text/javascript" src="scripts/controllers/ConsumptionController.js"></script>
+<script type="text/javascript" src="scripts/controllers/PaymentsController.js"></script>
 <!-- Services -->
 <script type="text/javascript" src="scripts/services/BookingService.js"></script>
+<!-- Resources -->
+<script type="text/javascript" src="scripts/resources/PaymentResource.js"></script>
 </head>
 <body>
 <nav class="nav-extended">
@@ -34,7 +38,7 @@
   <div ng-controller="AppCtrl" ng-cloak>
     <md-content class="md-padding">
       <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-        <md-nav-item ng-repeat="item in navItems" md-nav-href="#/{{item.link}}" name="item.name">{{item.name}}</md-nav-item>
+        <md-nav-item ng-repeat="item in navItems" md-nav-click="renderPage(item.link)" name="item.name">{{item.name}}</md-nav-item>
       </md-nav-bar>
     </md-content>
   </div>

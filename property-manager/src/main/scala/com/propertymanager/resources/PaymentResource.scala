@@ -26,8 +26,4 @@ class PaymentResource(@Autowired val paymentService: PaymentService) {
     }
   }
 
-  @GET
-  @Path("/total/{recipient}")
-  def totalAmountPaid(@PathParam("recipient") recipient: String) = Response.ok(paymentService.totalAmount)
-
 }

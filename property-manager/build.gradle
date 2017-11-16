@@ -5,7 +5,7 @@ apply plugin: 'scala'
 
 sourceCompatibility = 1.8
 
-httpPort=8090
+httpPort=8099
 
 jar {
   manifest {

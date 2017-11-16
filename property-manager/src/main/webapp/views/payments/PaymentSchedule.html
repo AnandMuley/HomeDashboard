@@ -1,1 +1,55 @@
-<h3>Payment Schedule</h3>
+<div layout="row">
+  <md-white-frame class="md-whiteframe-10dp app-common-margin" flex="25" layout layout-align="space-around center">
+      <md-content md-theme="docs-dark" layout="column" layout-padding>
+        <md-input-container class="md-default md-block">
+          <label>No.</label>
+          <input id="qa-payment-number" maxlength="2" ng-model="listItem.paymentNo"/>
+        </md-input-container>
+        <md-input-container class="md-default md-block">
+          <label>Description</label>
+          <textarea id="qa-payment-description" name="name" ng-model="listItem.description" rows="4" cols="80"></textarea>
+        </md-input-container>
+        <md-input-container class="md-default md-block">
+          <label>Amount</label>
+          <input id="qa-payment-amount" maxlength="10" ng-model="listItem.amount"/>
+        </md-input-container>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button id="qa-add-item" ng-click="enlist()" class="md-raised md-primary" aria-label="View">ADD</md-button>
+        </md-card-actions>
+      </md-content>
+  </md-white-frame>
+  <md-white-frame class="md-whiteframe-0dp" flex="auto" layout layout-align="center start">
+    <table class="home-dash-table" layout-sm="col">
+      <thead>
+        <tr layout-md="row">
+          <th>Payment No.</th>
+          <th>Description</th>
+          <th class="currency-col" flex="20">Amount</th>
+        </tr>
+      </thead>
+      <tbody ng-if="schedule.items.length>0">
+        <tr layout-md="row" ng-repeat="item in schedule.items|orderBy:'paymentNo'">
+          <td flex="10">{{item.paymentNo}}</td>
+          <td flex="20">{{item.description}}</td>
+          <td class="currency-col" flex="20">{{item.amount|currency:'₹':2}}</td>
+        </tr>
+      </tbody>
+      <tbody ng-if="schedule.items.length==0">
+        <tr>
+          <th colspan="3">No Items in List</th>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr layout-md="row">
+          <th colspan="2">Total</th>
+          <th class="currency-col">{{summary.total|currency:'₹'}}</th>
+        </tr>
+        <tr ng-if="schedule.items.length > 0" layout-md="row">
+          <td colspan="3">
+            <md-button ng-click="saveSchedule()" class="md-raised md-primary" aria-label="View">SAVE</md-button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </md-white-frame>
+</div>

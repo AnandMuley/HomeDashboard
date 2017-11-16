@@ -5,11 +5,13 @@ var app = angular.module('WebUI',
 
 var services = angular.module('myAppServices',['ngResource']);
 
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider','$mdThemingProvider', function ($routeProvider,$mdThemingProvider) {
 
-  $routeProvider.when('/', {
+  $routeProvider.when('/home', {
     templateUrl: 'views/Home.html',
     controller: 'HomeController'
+  }).when('/',{
+    redirectTo:'/home'
   }).when('/payments',{
     templateUrl: 'views/Payments.html',
     controller : 'PaymentsController'
@@ -20,6 +22,8 @@ app.config(['$routeProvider', function ($routeProvider) {
     templateUrl : 'views/payments/PaymentSchedule.html',
     controller : 'PaymentScheduleController'
   });
+
+  $mdThemingProvider.theme('docs-dark','default').primaryPalette('yellow').dark();
 
 }]);
 

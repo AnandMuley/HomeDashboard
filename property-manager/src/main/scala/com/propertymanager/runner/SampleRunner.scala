@@ -1,7 +1,6 @@
 package com.propertymanager.runner
 
-import com.propertymanager.domain.Investment
-import com.propertymanager.model.Payment
+import com.propertymanager.domain.{Investment, Payment}
 
 object SampleRunner {
 

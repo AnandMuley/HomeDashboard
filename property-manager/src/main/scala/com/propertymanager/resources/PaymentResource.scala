@@ -3,7 +3,7 @@ package com.propertymanager.resources
 import javax.ws.rs._
 import javax.ws.rs.core.{MediaType, Response}
 
-import com.propertymanager.model.Payment
+import com.propertymanager.domain.Payment
 import com.propertymanager.services._
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component

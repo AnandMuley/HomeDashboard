@@ -1,4 +1,4 @@
-package com.propertymanager.model
+package com.propertymanager.domain
 
 import java.util.Date
 

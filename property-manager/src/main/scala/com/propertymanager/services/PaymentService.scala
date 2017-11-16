@@ -1,7 +1,7 @@
 package com.propertymanager.services
 
+import com.propertymanager.domain.Payment
 import com.propertymanager.dtos.Summary
-import com.propertymanager.model.Payment
 import com.propertymanager.repositories.PaymentRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

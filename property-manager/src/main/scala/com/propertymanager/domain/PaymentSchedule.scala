@@ -10,10 +10,8 @@ import scala.beans.BeanProperty
 class PaymentSchedule @JsonCreator()(@BeanProperty @JsonProperty("paymentNumber") val paymentNumber: String, @BeanProperty @JsonProperty("amount") val amount: Double, @BeanProperty @JsonProperty("description") val description: String) {
 
   @Id
-  private val id: String = null;
+  private val id: String = null
 
-  def getId(): String = {
-    id
-  }
+  def getId() = id
 
 }

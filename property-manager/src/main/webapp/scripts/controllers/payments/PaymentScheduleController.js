@@ -1,7 +1,8 @@
-app.controller('PaymentScheduleController',['$scope',function($scope){
+app.controller('PaymentScheduleController',['$scope','PaymentScheduleResource',
+          function($scope,PaymentScheduleResource){
 
   $scope.listItem = {};
-  $scope.schedule = {propertyName:"Life Republic",items:[]};
+  $scope.schedule = new PaymentScheduleResource({propertyName:"Life Republic",items:[]});
 
   $scope.enlist = function(){
     if($scope.schedule.items.indexOf($scope.listItem)==-1){
@@ -11,8 +12,12 @@ app.controller('PaymentScheduleController',['$scope',function($scope){
   }
 
   $scope.saveSchedule = function(){
-    console.log('Saving changes....');
-
+    $scope.schedule.$save({},function(){
+      $scope.schedule = new PaymentScheduleResource({propertyName:"Life Republic",items:[]});
+      $scope.message = "List saved !!!";
+    },function(){
+      $scope.message = "Something went wrong !";
+    });
   }
 
 }]);

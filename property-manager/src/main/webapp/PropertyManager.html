@@ -25,6 +25,8 @@
 <script type="text/javascript" src="scripts/controllers/HomeController.js"></script>
 <script type="text/javascript" src="scripts/controllers/ConsumptionController.js"></script>
 <script type="text/javascript" src="scripts/controllers/PaymentsController.js"></script>
+<script type="text/javascript" src="scripts/controllers/payments/PaymentSummaryController.js"></script>
+<script type="text/javascript" src="scripts/controllers/PaymentScheduleController.js"></script>
 <!-- Services -->
 <script type="text/javascript" src="scripts/services/BookingService.js"></script>
 <!-- Resources -->
@@ -38,7 +40,7 @@
   <div ng-controller="AppCtrl" ng-cloak>
     <md-content class="md-padding">
       <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-        <md-nav-item ng-repeat="item in navItems" md-nav-click="renderPage(item.link)" name="item.name">{{item.name}}</md-nav-item>
+        <md-nav-item ng-repeat="item in navItems" md-nav-click="renderPage(item.link,item.name)" name="{{item.name}}">{{item.name}}</md-nav-item>
       </md-nav-bar>
     </md-content>
   </div>

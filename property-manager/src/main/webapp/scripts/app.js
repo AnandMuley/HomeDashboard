@@ -13,6 +13,12 @@ app.config(['$routeProvider', function ($routeProvider) {
   }).when('/payments',{
     templateUrl: 'views/Payments.html',
     controller : 'PaymentsController'
+  }).when('/payments/summary',{
+    templateUrl : 'views/payments/Summary.html',
+    controller : 'PaymentSummaryController'
+  }).when('/payments/schedule',{
+    templateUrl : 'views/payments/PaymentSchedule.html',
+    controller : 'PaymentScheduleController'
   });
 
 }]);
@@ -20,10 +26,11 @@ app.config(['$routeProvider', function ($routeProvider) {
 var controllers = angular.module('UIControllers', []);
 controllers.controller('AppCtrl',['$scope','$location',function($scope,$location){
 
-  $scope.currentNavItem = 'page1';
+  $scope.currentNavItem = 'Home';
 
-  $scope.renderPage = function(pageName){
-    $location.path(pageName);
+  $scope.renderPage = function(link,displayName){
+    $scope.currentNavItem = displayName;
+    $location.path(link);
   }
 
   $scope.navItems = [

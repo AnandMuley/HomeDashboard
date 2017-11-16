@@ -1,12 +1,30 @@
 @CHARSET "UTF-8";
 
 .home-dash-table{
-  width: 60%;
+  width: 100%;
+  padding: 20px;
+}
+
+.home-dash-table thead tr{
+  background: #00796B;
 }
 
 .home-dash-table thead th,tbody td{
   text-align: left;
   padding-left: 10px;
+  padding: 15px;
+}
+
+.home-dash-table tfoot th{
+  text-align: left;
+  padding-left: 10px;
+  padding: 15px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.currency-col{
+  text-align: right !important;
 }
 
 .body-container{

@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository
 @Repository
 trait PaymentScheduleSummaryRepository extends MongoRepository[PaymentScheduleSummary, String] {
 
+  def findByPropertyName(propertyName: String): PaymentScheduleSummary
+
 }

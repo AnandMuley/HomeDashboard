@@ -1,12 +1,12 @@
 package com.propertymanager.resources
 
 import java.io.IOException
-import javax.ws.rs.{Consumes, POST, Path, Produces}
+import javax.ws.rs._
 import javax.ws.rs.core.{MediaType, Response}
 
-import com.propertymanager.domain.{Investment, PaymentSchedule}
-import com.propertymanager.dtos.PaymentScheduleSummaryDto
-import com.propertymanager.services.{InvestmentService, PaymentScheduleService}
+import com.propertymanager.dtos.{PaymentScheduleSummaryDto, ResponseDto}
+import com.propertymanager.exceptions.{NoPaymentScheduleFoundException, ScheduleAlreadyExistsException}
+import com.propertymanager.services.PaymentScheduleService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
@@ -19,14 +19,30 @@ class PaymentScheduleResource(@Autowired val paymentScheduleService: PaymentSche
   @POST
   def add(paymentScheduleSummaryDto: PaymentScheduleSummaryDto): Response = {
     try {
-      Response.ok(paymentScheduleService.add(paymentScheduleSummaryDto)).build()
+      Response.ok(paymentScheduleService.createIfNotExists(paymentScheduleSummaryDto)).build()
     } catch {
-      case ex: IOException => {
-        Response.status(Response.Status.BAD_REQUEST).build()
+      case ex: ScheduleAlreadyExistsException => {
+        Response.status(Response.Status.BAD_REQUEST).entity(new ResponseDto(ex getMessage)).build()
       }
       case ex: Exception => {
         Response.serverError().build()
       }
     }
   }
+
+  @GET
+  @Path("{propertyName}")
+  def getScheduleByPropertyName(@PathParam("propertyName") propertyName: String): Response = {
+    try {
+      Response.ok(paymentScheduleService.findByPropertyName(propertyName)).build()
+    } catch {
+      case ex: NoPaymentScheduleFoundException => {
+        Response.status(Response.Status.NOT_FOUND).entity("No record found").build()
+      }
+      case ex: Exception => {
+        Response.serverError().build()
+      }
+    }
+  }
+
 }

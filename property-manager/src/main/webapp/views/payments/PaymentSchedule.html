@@ -19,7 +19,7 @@
       </md-content>
   </md-white-frame>
   <md-white-frame class="md-whiteframe-0dp" flex="auto" layout layout-align="center start">
-    <table class="home-dash-table" layout-sm="col">
+    <table id="qa-payment-schedule-tab" class="home-dash-table" layout-sm="col">
       <thead>
         <tr layout-md="row">
           <th>Payment No.</th>
@@ -46,7 +46,7 @@
         </tr>
         <tr ng-if="schedule.items.length > 0" layout-md="row">
           <td colspan="3">
-            <md-button ng-click="saveSchedule()" class="md-raised md-primary" aria-label="View">SAVE</md-button>
+            <md-button id="qa-payment-schedule-save-btn" ng-click="saveSchedule()" class="md-raised md-primary" aria-label="View">SAVE</md-button>
           </td>
         </tr>
       </tfoot>

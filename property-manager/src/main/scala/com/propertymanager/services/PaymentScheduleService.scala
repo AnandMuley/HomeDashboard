@@ -13,6 +13,16 @@ import scala.collection.JavaConverters._
 @Component
 class PaymentScheduleService(@Autowired paymentScheduleSummaryRepository: PaymentScheduleSummaryRepository) {
 
+  def update(paymentScheduleSummaryDto: PaymentScheduleSummaryDto) = {
+    Option.apply(paymentScheduleSummaryRepository.findByPropertyName(paymentScheduleSummaryDto.propertyName)) match {
+      case Some(scheduleSummary) => {
+        
+      }
+      case None => throw new NoPaymentScheduleFoundException
+    }
+  }
+
+
   def findByPropertyName(propertyName: String): PaymentScheduleSummaryDto = {
 
     Option.apply(paymentScheduleSummaryRepository.findByPropertyName(propertyName)) match {

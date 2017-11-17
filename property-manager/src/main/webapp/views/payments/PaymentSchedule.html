@@ -54,17 +54,19 @@
         </td>
       </tr>
       <tr ng-if="schedule.items.length > 0" layout-md="row">
-        <th colspan="3">
+        <th colspan="3" ng-if="recordExists == false">
           <md-button id="qa-payment-schedule-save-btn" ng-click="saveSchedule()" class="md-raised md-primary"
-                     aria-label="View">SAVE
-          </md-button>
+                     aria-label="View">SAVE</md-button>
+        </th>
+        <th colspan="3" ng-if="recordExists == true">
+          <md-button id="qa-payment-schedule-save-btn" ng-click="update()" class="md-raised md-primary"
+                     aria-label="View">UPDATE</md-button>
         </th>
       </tr>
       <tr ng-if="message != undefined">
         <th colspan="3">{{message}}</th>
       </tr>
       </tfoot>
-
     </table>
   </md-white-frame>
 </div>

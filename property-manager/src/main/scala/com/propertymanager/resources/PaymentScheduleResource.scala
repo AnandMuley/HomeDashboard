@@ -37,7 +37,21 @@ class PaymentScheduleResource(@Autowired val paymentScheduleService: PaymentSche
       Response.ok(paymentScheduleService.findByPropertyName(propertyName)).build()
     } catch {
       case ex: NoPaymentScheduleFoundException => {
-        Response.status(Response.Status.NOT_FOUND).entity("No record found").build()
+        Response.status(Response.Status.NOT_FOUND).entity(new ResponseDto("No record found")).build()
+      }
+      case ex: Exception => {
+        Response.serverError().build()
+      }
+    }
+  }
+
+  @PUT
+  def update(paymentScheduleSummaryDto: PaymentScheduleSummaryDto): Response = {
+    try {
+      Response.ok(paymentScheduleService.update(paymentScheduleSummaryDto)).build()
+    } catch {
+      case ex: NoPaymentScheduleFoundException => {
+        Response.status(Response.Status.NOT_FOUND).entity(new ResponseDto("No record found")).build()
       }
       case ex: Exception => {
         Response.serverError().build()

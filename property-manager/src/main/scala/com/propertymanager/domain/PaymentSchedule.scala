@@ -7,8 +7,8 @@ import scala.beans.BeanProperty
 
 @Document(collection = "paymentschedule")
 class PaymentSchedule @JsonCreator()(
-                                      @BeanProperty @JsonProperty("paymentNumber") val paymentNumber: String,
-                                      @BeanProperty @JsonProperty("amount") val amount: Double,
-                                      @BeanProperty @JsonProperty("description") val description: String) {
+                                      @BeanProperty @JsonProperty("paymentNumber") var paymentNumber: String,
+                                      @BeanProperty @JsonProperty("amount") var amount: Double,
+                                      @BeanProperty @JsonProperty("description") var description: String) {
 
 }

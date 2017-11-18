@@ -17,6 +17,7 @@ class Payment @JsonCreator()(@BeanProperty @JsonProperty("recipient") val recipi
                             ) {
 
   @Id
+  @BeanProperty
   val id: String = null
 
   override def toString = s"Payment($id, $recipient, $amount, $mode, $date, $fromAccount)"

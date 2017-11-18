@@ -1,7 +1,11 @@
 @CHARSET "UTF-8";
 
-.app-table{
-  padding: 20px;
+.app-link{
+  color: blue;
+}
+
+.app-link:hover{
+  cursor: pointer;
 }
 
 .app-table thead tr{

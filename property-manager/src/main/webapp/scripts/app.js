@@ -46,14 +46,6 @@ controllers.controller('AppCtrl',['$scope','$location',function($scope,$location
       link:"home"
     },
     {
-      name:"Properties",
-      link:"properties"
-    },
-    {
-      name:"Settings",
-      link:"settings"
-    },
-    {
       name:"Payments",
       link:"payments"
     }

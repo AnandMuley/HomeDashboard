@@ -13,6 +13,8 @@ class PaymentService(@Autowired paymentRepository: PaymentRepository) {
 
   def save(payment: Payment) = paymentRepository.save(payment)
 
+  def delete(id: String) = paymentRepository.delete(id)
+
   def getDetails() = {
     val payments = paymentRepository.findAll()
     val total = payments.asScala.toList.map(p => p.getAmount).sum

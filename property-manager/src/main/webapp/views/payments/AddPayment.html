@@ -25,19 +25,21 @@
         <input id="qa-payment-amount" ng-model="payment.amount"/>
       </md-input-container>
       <md-card-actions layout="row" layout-align="end center">
-        <md-button id="qa-add-item" ng-click="save()" class="md-raised md-primary" aria-label="View">ADD</md-button>
+        <md-button id="qa-add-item" ng-click="reset()" class="md-raised md-primary" aria-label="View">RESET</md-button>
+        <md-button id="qa-add-item" ng-click="save()" class="md-raised md-primary" aria-label="View">SAVE</md-button>
       </md-card-actions>
       <div ng-if="message != undefined" layout="row">{{message}}</div>
     </md-content>
-    <table class="app-table" layout-md="col" flex="auto">
+    <table class="app-table" flex="66" layout-sm="col">
       <thead>
         <tr layout-md="row">
           <th flex="10">Sr.No</th>
           <th flex="20">From Account</th>
           <th flex="20">Recipient</th>
-          <th flex="20">Mode Of Payment</th>
+          <th flex="20">Mode</th>
           <th class="currency-col" flex="20">Amount</th>
           <th flex="10">Date</th>
+          <th flex="10">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -48,6 +50,9 @@
           <td flex="20">{{payment.mode|uppercase}}</td>
           <td class="currency-col" flex="20">{{payment.amount|currency:'₹':2}}</td>
           <td flex="10">{{payment.date|date:'dd-MMM-yyyy'}}</td>
+          <td flex="10">
+            <span class="app-link" ng-click="edit(payment)">Edit</span>
+            <span class="app-link" ng-click="delete(payment)">Delete</span></td>
         </tr>
       </tbody>
       <tfoot>

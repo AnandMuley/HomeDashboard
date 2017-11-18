@@ -12,7 +12,7 @@ import scala.beans.BeanProperty
 class Payment @JsonCreator()(@BeanProperty @JsonProperty("recipient") val recipient: String,
                              @BeanProperty @JsonProperty("amount") val amount: Double,
                              @BeanProperty @JsonProperty("mode") val mode: String,
-                             @BeanProperty @JsonProperty("date") @JsonFormat(pattern = "yyyy-MM-dd") val date: Date,
+                             @BeanProperty @JsonProperty("date") @JsonFormat(pattern = "dd-MMM-yyyy") val date: Date,
                              @BeanProperty @JsonProperty("fromAccount") val fromAccount: String
                             ) {
 

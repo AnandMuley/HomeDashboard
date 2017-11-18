@@ -10,7 +10,7 @@ ${dataRowNum2}    4
 *** Test Cases ***
 Adding payment item to payment schedule list
     [Documentation]    Should be able to add item to the schedule list
-    Open Browser    http://localhost:8099/property-manager/#!/payments/schedule
+    Open Browser    http://localhost:8099/property-manager/#!/payments/schedule    firefox
     Input Text    id=qa-payment-number    ${schedule1["paymentNo"]}
     Input Text    id=qa-payment-description    ${schedule1["description"]}
     Input Text    id=qa-payment-amount    ${schedule1["amount"]}

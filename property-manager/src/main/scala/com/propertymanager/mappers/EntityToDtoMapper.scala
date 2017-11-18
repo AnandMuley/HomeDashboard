@@ -1,20 +1,20 @@
 package com.propertymanager.mappers
 
-import com.propertymanager.domain.{PaymentSchedule, PaymentScheduleSummary}
-import com.propertymanager.dtos.{PaymentItemDto, PaymentScheduleSummaryDto}
+import com.propertymanager.domain.{PaymentItem, PaymentScheduleSummary}
+import com.propertymanager.dtos.{PaymentItemDto, PaymentScheduleDto}
 
 import scala.collection.JavaConverters._
 
 object EntityToDtoMapper {
 
-  def map(paymentScheduleSummary: PaymentScheduleSummary): PaymentScheduleSummaryDto = {
-    new PaymentScheduleSummaryDto(paymentScheduleSummary.propertyName, paymentScheduleSummary.items.asScala.map(sch => map(sch)).toList.asJava)
+  def map(paymentScheduleSummary: PaymentScheduleSummary): PaymentScheduleDto = {
+    new PaymentScheduleDto(paymentScheduleSummary.propertyName, paymentScheduleSummary.items.asScala.map(sch => map(sch)).toList.asJava)
   }
 
-  def map(paymentSchedule: PaymentSchedule): PaymentItemDto = new PaymentItemDto(
-    paymentSchedule.paymentNumber,
-    paymentSchedule.amount,
-    paymentSchedule.description
+  def map(paymentItem: PaymentItem): PaymentItemDto = new PaymentItemDto(
+    paymentItem.paymentNumber,
+    paymentItem.amount,
+    paymentItem.description
   )
 
 }

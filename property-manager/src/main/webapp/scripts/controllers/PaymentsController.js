@@ -23,6 +23,12 @@ app.controller('PaymentsController',['$scope','PaymentResource','$location',
       'description':'Expected installments to be paid as per the work done',
       'link':'payments/schedule',
       'imagePath':'images/PaymentSchedule.jpg'
+    },
+    {
+      'title':'Add Payments',
+      'description':'Add an entry to payments list',
+      'link':'payments/add',
+      'imagePath':'images/Payment.jpg'
     }
   ];
 

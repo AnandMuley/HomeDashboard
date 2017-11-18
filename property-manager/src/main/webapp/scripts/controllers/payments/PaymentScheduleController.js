@@ -11,7 +11,7 @@ app.controller('PaymentScheduleController',['$scope','PaymentScheduleResource',
       if(response.status == 400){
         $scope.message = response.data.message;
       }else if(response.status == 404){
-        $scope.message = response.data.message;
+        $scope.schedule = new PaymentScheduleResource({items:[]});
       }else{
         $scope.message = "Something went wrong !";
       }

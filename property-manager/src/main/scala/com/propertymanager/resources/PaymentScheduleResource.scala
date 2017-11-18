@@ -1,10 +1,9 @@
 package com.propertymanager.resources
 
-import java.io.IOException
 import javax.ws.rs._
 import javax.ws.rs.core.{MediaType, Response}
 
-import com.propertymanager.dtos.{PaymentScheduleSummaryDto, ResponseDto}
+import com.propertymanager.dtos.{PaymentScheduleDto, ResponseDto}
 import com.propertymanager.exceptions.{NoPaymentScheduleFoundException, ScheduleAlreadyExistsException}
 import com.propertymanager.services.PaymentScheduleService
 import org.springframework.beans.factory.annotation.Autowired
@@ -17,9 +16,9 @@ import org.springframework.stereotype.Component
 class PaymentScheduleResource(@Autowired val paymentScheduleService: PaymentScheduleService) {
 
   @POST
-  def add(paymentScheduleSummaryDto: PaymentScheduleSummaryDto): Response = {
+  def add(paymentScheduleDto: PaymentScheduleDto): Response = {
     try {
-      Response.ok(paymentScheduleService.createIfNotExists(paymentScheduleSummaryDto)).build()
+      Response.ok(paymentScheduleService.createIfNotExists(paymentScheduleDto)).build()
     } catch {
       case ex: ScheduleAlreadyExistsException => {
         Response.status(Response.Status.BAD_REQUEST).entity(new ResponseDto(ex getMessage)).build()
@@ -46,9 +45,9 @@ class PaymentScheduleResource(@Autowired val paymentScheduleService: PaymentSche
   }
 
   @PUT
-  def update(paymentScheduleSummaryDto: PaymentScheduleSummaryDto): Response = {
+  def update(paymentScheduleDto: PaymentScheduleDto): Response = {
     try {
-      Response.ok(paymentScheduleService.update(paymentScheduleSummaryDto)).build()
+      Response.ok(paymentScheduleService.update(paymentScheduleDto)).build()
     } catch {
       case ex: NoPaymentScheduleFoundException => {
         Response.status(Response.Status.NOT_FOUND).entity(new ResponseDto("No record found")).build()

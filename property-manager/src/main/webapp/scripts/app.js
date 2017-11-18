@@ -21,6 +21,9 @@ app.config(['$routeProvider','$mdThemingProvider', function ($routeProvider,$mdT
   }).when('/payments/schedule',{
     templateUrl : 'views/payments/PaymentSchedule.html',
     controller : 'PaymentScheduleController'
+  }).when('/payments/add',{
+    templateUrl : 'views/payments/AddPayment.html',
+    controller : 'AddPaymentController'
   });
 
   $mdThemingProvider.theme('docs-dark','default').primaryPalette('yellow').dark();

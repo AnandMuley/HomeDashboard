@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+
+.app-link{
+  color: blue;
+}
+
+.app-link:hover{
+  cursor: pointer;
+}
+
+.app-table thead tr{
+  background: #00796B;
+}
+
+.app-table thead th,tbody td{
+  text-align: left;
+  padding-left: 10px;
+  padding: 15px;
+}
+
+.app-table tfoot td{
+  text-align: left;
+  padding-left: 10px;
+  padding: 15px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.home-dash-table{
+  width: 100%;
+  padding: 20px;
+}
+
+.home-dash-table thead tr{
+  background: #00796B;
+}
+
+.home-dash-table thead th,tbody td{
+  text-align: left;
+  padding-left: 10px;
+  padding: 15px;
+}
+
+.home-dash-table tfoot td{
+  text-align: left;
+  padding-left: 10px;
+  padding: 15px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.currency-col{
+  text-align: right !important;
+}
+
+.body-container{
+  padding: 20px;
+}
+
+.month{
+  font-size: 50% !important;
+}
+
+.brand-logo{
+  margin-left:3.5%;
+  color:#00796b;
+}
+
+.md-card>img{
+  width: 80%;
+}
+
+.app-common-margin{
+  margin-left: 2%;
+}

@@ -1,9 +1,14 @@
 package com.billing.dtos
 
-import java.time.LocalDate
-import java.util._
+import java.util.Date
 
-class BillingDto(id: String, billType: String, frequency: String,
-                 billDate: LocalDate, payments: List[PaymentDto]) {
+import com.fasterxml.jackson.annotation.{JsonCreator, JsonFormat, JsonProperty}
+
+import scala.beans.BeanProperty
+
+class BillingDto @JsonCreator()(
+                                 @BeanProperty @JsonProperty("billingType") val billType: String,
+                                 @BeanProperty @JsonProperty("frequency") val frequency: String,
+                                 @BeanProperty @JsonProperty("billDate") @JsonFormat(pattern = "dd-MMM-yyyy") val billDate: Date) {
 
 }

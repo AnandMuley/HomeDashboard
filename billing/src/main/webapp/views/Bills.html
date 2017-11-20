@@ -1,12 +1,22 @@
 <div layout="row">
     <md-content class="app-common-margin" md-theme="docs-dark" layout="column" flex="30" layout-padding>
+        <div layout="row">
+          <md-input-container flex="50" class="md-default md-block">
+            <label>Type</label>
+            <md-select id="qa-type" ng-model="bill.billType">
+              <md-option ng-repeat="type in billingTypes" ng-value="type">{{type}}</md-option>
+            </md-select>
+          </md-input-container>
+          <md-input-container flex="auto" class="md-default md-block">
+            <label>Frequency</label>
+            <md-select id="qa-frequency" ng-model="bill.frequency">
+              <md-option ng-repeat="type in frequencies" ng-value="type">{{type}}</md-option>
+            </md-select>
+          </md-input-container>
+        </div>
         <md-input-container class="md-default md-block">
-          <label>Type</label>
-          <input id="qa-type" ng-model="bill.billType"/>
-        </md-input-container>
-        <md-input-container class="md-default md-block">
-          <label>Frequency</label>
-          <input id="qa-frequency" ng-model="bill.frequency"></input>
+          <label>Notes</label>
+          <textarea ng-model="bill.notes" rows="3" cols="80"></textarea>
         </md-input-container>
         <md-input-container class="md-default md-block">
           <label>Date</label>
@@ -18,29 +28,27 @@
       </md-card-actions>
       <div ng-if="message != undefined" layout="row">{{message}}</div>
     </md-content>
-    <table class="app-table" flex="66" layout-sm="col">
+    <table class="app-table" flex="70" layout-sm="col">
       <thead>
         <tr layout-md="row">
           <th flex="10">Sr.No</th>
-          <th flex="20">From Account</th>
-          <th flex="20">Recipient</th>
-          <th flex="20">Mode</th>
-          <th class="currency-col" flex="20">Amount</th>
-          <th flex="10">Date</th>
+          <th flex="20">Notes</th>
+          <th flex="10">Type</th>
+          <th flex="25">Frequency</th>
+          <th flex="25">Date</th>
           <th flex="10">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr layout-md="row" ng-repeat="payment in summary.items">
-          <td flex="20">{{$index+1}}</td>
-          <td flex="20">{{payment.fromAccount}}</td>
-          <td flex="20">{{payment.recipient}}</td>
-          <td flex="20">{{payment.mode|uppercase}}</td>
-          <td class="currency-col" flex="20">{{payment.amount|currency:'₹':2}}</td>
-          <td flex="10">{{payment.date|date:'dd-MMM-yyyy'}}</td>
+        <tr layout-md="row" ng-repeat="bill in bills">
+          <td flex="10">{{$index+1}}</td>
+          <td flex="20">{{bill.notes}}</td>
+          <td flex="20">{{bill.billType}}</td>
+          <td flex="20">{{bill.frequency}}</td>
+          <td flex="20">{{bill.billDate|date:'dd-MMM-yyyy'}}</td>
           <td flex="10">
-            <span class="app-link" ng-click="edit(payment)">Edit</span>
-            <span class="app-link" ng-click="delete(payment)">Delete</span></td>
+            <span class="app-link" ng-click="edit(bill)">Edit</span>
+            <span class="app-link" ng-click="delete(bill)">Delete</span></td>
         </tr>
       </tbody>
       <tfoot>

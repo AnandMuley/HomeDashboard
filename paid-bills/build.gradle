@@ -1,0 +1,38 @@
+apply plugin: 'war'
+apply plugin: 'jacoco'
+apply plugin: 'jetty'
+apply plugin: 'scala'
+
+sourceCompatibility=1.8
+
+httpPort=8089
+
+jar {
+  manifest {
+    attributes 'Implementation-Title': 'Paid-bills Tracker'
+  }
+}
+
+jacoco {
+  toolVersion = "0.7.6.201602180812"
+  reportsDir = file("$buildDir/coverageReport")
+}
+
+jacocoTestReport {
+  reports {
+    xml.enabled false
+    csv.enabled false
+    html.destination "${buildDir}/jacocoHtml"
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile json,scala.core
+  compile spring.web, spring.core, spring.test, jersey.server, jackson,spring.webmvc
+  compile jersey.spring, spring.mongo,jersey.jackson
+  testCompile spock.core,spock.cglib,spock.objenesis,groovy,jersey.testcore,jersey.provider
+}

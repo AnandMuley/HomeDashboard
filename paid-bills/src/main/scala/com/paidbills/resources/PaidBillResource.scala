@@ -1,7 +1,7 @@
 package com.paidbills.resources
 
 import javax.ws.rs.core.{MediaType, Response}
-import javax.ws.rs._
+import javax.ws.rs.{QueryParam, _}
 
 import com.paidbills.dtos.BillDto
 import com.paidbills.services.PaidBillService
@@ -15,16 +15,13 @@ import org.springframework.stereotype.Component
 class PaidBillResource(@Autowired val paidBillService: PaidBillService) {
 
   @GET
-  def getAll(): Response = {
-    Response.ok(paidBillService.getDeatils()).build()
+  def getAll(@QueryParam("lastOneMonth") lastOneMonth: Boolean): Response = {
+    Response.ok(paidBillService.getDeatils(lastOneMonth)).build()
   }
 
   @POST
   def addNew(billDto: BillDto): Response = {
     Response.ok(paidBillService.save(billDto)).build();
   }
-
-  @GET
-  def 
 
 }

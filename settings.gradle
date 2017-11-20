@@ -2,3 +2,4 @@ rootProject.name = "homedashboard"
 
 include "milk-consumption-tracker"
 include "property-manager"
+include "billing"

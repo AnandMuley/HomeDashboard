@@ -1,0 +1,23 @@
+apply plugin:'scala'
+apply plugin:'war'
+apply plugin:'jetty'
+
+httpPort=8099
+
+jar{
+  manifest{
+    attributes 'Implementation-Title':'Billing'
+  }
+}
+
+repositories{
+  mavenCentral()
+}
+
+dependencies{
+  compile json,scala.core
+  compile spring.web, spring.core, jersey.server, jackson,spring.webmvc
+  compile jersey.spring, spring.mongo,jersey.jackson
+}
+
+

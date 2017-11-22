@@ -24,7 +24,8 @@
         </md-input-container>
       <md-card-actions layout="row" layout-align="end center">
         <md-button id="qa-add-item" ng-click="reset()" class="md-raised md-primary" aria-label="View">RESET</md-button>
-        <md-button id="qa-add-item" ng-click="save()" class="md-raised md-primary" aria-label="View">SAVE</md-button>
+        <md-button ng-if="!editing" id="qa-add-item" ng-click="save()" class="md-raised md-primary" aria-label="View">SAVE</md-button>
+        <md-button ng-if="editing" id="qa-update-item" ng-click="update()" class="md-raised md-primary" aria-label="update">Update</md-button>
       </md-card-actions>
       <div ng-if="message != undefined" layout="row">{{message}}</div>
     </md-content>
@@ -48,7 +49,8 @@
           <td flex="20">{{bill.billDate|date:'dd-MMM-yyyy'}}</td>
           <td flex="10">
             <span class="app-link" ng-click="edit(bill)">Edit</span>
-            <span class="app-link" ng-click="delete(bill)">Delete</span></td>
+            <span class="app-link" ng-click="delete(bill)">Delete</span>
+          </td>
         </tr>
       </tbody>
       <tfoot>

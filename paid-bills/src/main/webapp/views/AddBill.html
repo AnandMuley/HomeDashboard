@@ -1,0 +1,58 @@
+<div layout="row">
+    <md-content class="app-common-margin" md-theme="docs-dark" layout="column" flex="30" layout-padding>
+        <div layout="row">
+          <md-input-container class="md-default md-block">
+            <label>Bill Number</label>
+            <input id="qa-bill-billno" ng-model="bill.billNumber"/>
+          </md-input-container>
+          <md-input-container class="md-default md-block">
+            <label>Amount</label>
+            <input id="qa-bill-amount" ng-model="bill.billAmount"></input>
+          </md-input-container>
+        </div>
+        <md-input-container class="md-default md-block">
+          <label>Description</label>
+          <textarea id="qa-bill-description" ng-model="bill.description" rows="3" cols="80"></textarea>
+        </md-input-container>
+        <md-input-container class="md-default md-block">
+          <label>Date</label>
+          <input id="qa-bill-date" ng-model="bill.billDate"/>
+        </md-input-container>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button id="qa-add-item" ng-click="reset()" class="md-raised md-primary" aria-label="View">RESET</md-button>
+        <md-button id="qa-add-item" ng-click="save()" class="md-raised md-primary" aria-label="View">SAVE</md-button>
+      </md-card-actions>
+      <div ng-if="message != undefined" layout="row">{{message}}</div>
+    </md-content>
+    <table class="app-table" flex="66" layout-sm="col">
+      <thead>
+        <tr layout-md="row">
+          <th flex="10">Sr.No</th>
+          <th flex="20">Bill Number</th>
+          <th class="currency-col" flex="20">Amount</th>
+          <th flex="20">Description</th>
+          <th flex="20">Date</th>
+          <th flex="20">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr layout-md="row" ng-repeat="bill in bills">
+          <td flex="20">{{$index+1}}</td>
+          <td flex="20">{{bill.billNumber}}</td>
+          <td flex="20">{{bill.billAmount|currency:'₹':2}}</td>
+          <td flex="20">{{bill.description}}</td>
+          <td flex="10">{{bill.billDate|date:'dd-MMM-yyyy'}}</td>
+          <td flex="10">
+            <span class="app-link" ng-click="edit(bill)">Edit</span>
+            <span class="app-link" ng-click="delete(bill)">Delete</span></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr layout-md="row">
+          <th colspan="4">Total</th>
+          <th class="currency-col" colspan="1"style="padding-right:15px;">{{summary.total|currency:'₹'}}</th>
+          <th></th>
+        </tr>
+      </tfoot>
+    </table>
+</div>

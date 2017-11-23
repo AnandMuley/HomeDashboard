@@ -1,21 +1,30 @@
 <div class="body-container">
-  <h2>Status of the bills</h2>
+  <!-- <h2>Status of the bills</h2> -->
+  <!-- <md-list>
+    <md-list-item class="md-3-line" ng-repeat="bill in bills">
+      <div class="md-list-item-text">
+        <h3>{{bill.notes}}</h3>
+        <p class="{{bill.status|lowercase}}">{{bill.status}}</p>
+      </div>
+    </md-list-item>
+  </md-list> -->
 </div>
-<!-- <div class="body-container" layout="row">
-  <div flex-xs flex-gt-xs="25" layout="column">
+
+<div class="body-container" layout="row">
+  <div flex-xs flex-gt-xs="20" layout="column" ng-repeat="bill in bills">
     <md-card>
-      <img ng-src="images/Payment.jpg" class="md-card-image" alt="Washed Out"  width="400">
+      <img style="width:100px;margin:50px;" ng-src="images/Vodafone.jpg" class="md-card-image" alt="Washed Out"  width="400">
       <md-card-title>
         <md-card-title-text>
-          <span class="md-headline">Payment</span>
+          <span class="md-headline">{{bill.notes}}</span>
         </md-card-title-text>
       </md-card-title>
       <md-card-content>
-        <p>My bills to be paid</p>
+        <p class="{{bill.status|lowercase}}">{{bill.status}}</p>
       </md-card-content>
-      <md-card-actions layout="row" layout-align="end center">
+      <!-- <md-card-actions layout="row" layout-align="end center">
         <md-button>View</md-button>
-      </md-card-actions>
+      </md-card-actions> -->
     </md-card>
   </div>
-</div> -->
+</div>

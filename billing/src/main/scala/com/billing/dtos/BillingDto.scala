@@ -15,4 +15,7 @@ class BillingDto @JsonCreator()(
   @BeanProperty
   var id: String = null
 
+  @BeanProperty
+  var status: String = "UNPAID"
+
 }

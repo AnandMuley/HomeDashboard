@@ -1,5 +1,13 @@
 @CHARSET "UTF-8";
 
+.paid{
+  color:green !important;
+}
+
+.unpaid{
+  color:red !important;
+}
+
 .app-link{
   color: blue;
 }

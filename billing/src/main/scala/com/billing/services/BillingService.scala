@@ -1,6 +1,8 @@
 package com.billing.services
 
-import java.util.stream.Collectors
+import java.time.temporal.{TemporalAdjuster, TemporalAdjusters}
+import java.time.{LocalDate, ZoneOffset}
+import java.util.Date
 
 import com.billing.dtos.BillingDto
 import com.billing.entities.Bill
@@ -11,7 +13,24 @@ import org.springframework.stereotype.Service
 import scala.collection.JavaConverters._
 
 @Service
-class BillingService(@Autowired val billingRepository: BillingRepository) {
+class BillingService(@Autowired val billingRepository: BillingRepository, @Autowired val paymentService: PaymentService) {
+
+  def getStatus() = {
+    val startDate = Date.from(LocalDate.now().`with`(TemporalAdjusters.firstDayOfMonth()).atStartOfDay().toInstant(ZoneOffset.UTC))
+    val endDate = Date.from(LocalDate.now().`with`(TemporalAdjusters.lastDayOfMonth()).atStartOfDay().toInstant(ZoneOffset.UTC))
+
+    val bills = billingRepository.findAll()
+
+    bills.asScala.map(bi => {
+      val payment = paymentService.getStatus(bi.id, startDate, endDate)
+      val billingDto = new BillingDto(bi.billingType, bi.frequency, bi.notes, bi.billDate)
+      if (payment != null) {
+        billingDto.setStatus("PAID")
+      }
+      billingDto
+    }).toList.asJava
+
+  }
 
   def create(billingDto: BillingDto): BillingDto = {
     val billing = new Bill(billingDto.billType, billingDto.frequency, billingDto.notes, billingDto.billDate)

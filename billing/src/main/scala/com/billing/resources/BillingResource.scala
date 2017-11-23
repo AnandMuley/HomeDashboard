@@ -33,4 +33,8 @@ class BillingResource(@Autowired val billingService: BillingService) {
     Response.noContent().build()
   }
 
+  @GET
+  @Path("status")
+  def getStatus(): Response = Response.ok(billingService.getStatus()).build()
+
 }

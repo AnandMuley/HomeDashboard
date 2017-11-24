@@ -2,7 +2,10 @@ app.controller('AddPaymentController',['$scope','PaymentResource','BillingResour
         function($scope,PaymentResource,BillingResource){
   $scope.pageName = "Add Payment Details";
   $scope.bills = BillingResource.query();
-  $scope.payments = PaymentResource.query();
+
+  PaymentResource.query(function(data){
+    $scope.payments = data;
+  });
 
   $scope.payment = new PaymentResource();
   $scope.editing = false;

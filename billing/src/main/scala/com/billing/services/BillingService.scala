@@ -15,6 +15,11 @@ import scala.collection.JavaConverters._
 @Service
 class BillingService(@Autowired val billingRepository: BillingRepository, @Autowired val paymentService: PaymentService) {
 
+  def getById(id: String) = {
+    val bill = billingRepository.findOne(id)
+    new BillingDto(bill.billingType, bill.frequency, bill.notes, bill.billDate)
+  }
+
   def getStatus() = {
     val startDate = Date.from(LocalDate.now().`with`(TemporalAdjusters.firstDayOfMonth()).atStartOfDay().toInstant(ZoneOffset.UTC))
     val endDate = Date.from(LocalDate.now().`with`(TemporalAdjusters.lastDayOfMonth()).atStartOfDay().toInstant(ZoneOffset.UTC))

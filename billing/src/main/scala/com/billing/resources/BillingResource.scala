@@ -20,6 +20,10 @@ class BillingResource(@Autowired val billingService: BillingService) {
   @GET
   def getAll() = Response.ok(billingService.fetchAll()).build()
 
+  @GET
+  @Path("{id}")
+  def getById(@PathParam("id") id: String) = Response.ok(billingService.getById(id)).build()
+
   @PUT
   def update(billingDto: BillingDto): Response = {
     billingService.update(billingDto)

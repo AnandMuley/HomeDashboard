@@ -13,6 +13,6 @@ class PaymentDto @JsonCreator()(
                                  @BeanProperty @JsonProperty("paid") val paid: Boolean = true) {
 
   @BeanProperty
-  def id: String = null
+  var id: String = null
 
 }

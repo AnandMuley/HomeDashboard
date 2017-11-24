@@ -22,14 +22,27 @@ class PaymentService(@Autowired paymentRepository: PaymentRepository) {
     dto
   }
 
+  def getPaymentStatus(isPaid: Boolean): String = if (isPaid) "PAID" else "UNPAID"
+
   def create(paymentDto: PaymentDto) = {
-    val payment = new Payment(paymentDto.billId, paymentDto.paymentDate, paymentDto.amount, paymentDto.isPaid)
+    val payment = new Payment(paymentDto.billId, paymentDto.paymentDate, paymentDto.amount, true)
     paymentRepository.save(payment)
   }
 
+  def update(paymentDto: PaymentDto)={
+    val payment = new Payment(paymentDto.billId, paymentDto.paymentDate, paymentDto.amount, paymentDto.paid)
+    payment.id = paymentDto.id
+    paymentRepository.save(payment)
+  }
+
+  def delete(id:String)= paymentRepository.delete(id)
+
   def fetchAll() = {
     val payments = paymentRepository.findAll()
-    payments.asScala.map(payment => new PaymentDto(payment.billId, payment.paymentDate, payment.amount, payment.isPaid)).asJava
+    payments.asScala.map(payment => {
+      var dto = new PaymentDto(payment.billId, payment.paymentDate, payment.amount, payment.isPaid)
+      dto.id = payment.id
+    }).asJava
   }
 
 }

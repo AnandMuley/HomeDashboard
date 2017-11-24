@@ -13,7 +13,7 @@
 <div class="body-container" layout="row">
   <div flex-xs flex-gt-xs="20" layout="column" ng-repeat="bill in bills">
     <md-card>
-      <img style="width:100px;margin:50px;" ng-src="images/Vodafone.jpg" class="md-card-image" alt="Washed Out"  width="400">
+      <img style="width:100px;margin:50px;" ng-src="images/{{bill.notes}}.jpg" class="md-card-image" alt="Washed Out"  width="400">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{bill.notes}}</span>

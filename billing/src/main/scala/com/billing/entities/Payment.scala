@@ -16,6 +16,6 @@ class Payment(
 
   @Id
   @BeanProperty
-  def id: String = null
+  var id: String = null
 
 }

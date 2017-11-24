@@ -21,4 +21,17 @@ class PaymentResource(@Autowired val paymentService: PaymentService) {
   @GET
   def getAll() = Response.ok(paymentService.fetchAll()).build()
 
+  @PUT
+  def update(paymentDto: PaymentDto) = {
+    paymentService.update(paymentDto)
+    Response.noContent().build()
+  }
+
+  @DELETE
+  @Path("{id}")
+  def delete(@PathParam("id") id: String) = {
+    paymentService.delete(id)
+    Response.noContent().build()
+  }
+
 }

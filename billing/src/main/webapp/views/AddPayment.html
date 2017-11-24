@@ -14,6 +14,13 @@
           <label>Amount</label>
           <input id="qa-amount" ng-model="payment.amount"/>
       </md-input-container>
+      <md-input-container class="md-default md-block">
+          <label>Is Paid</label>
+          <md-select id="qa-amount" ng-model="payment.paid">
+            <md-option ng-value="true">PAID</md-option>
+            <md-option ng-value="false">UNPAID</md-option>
+          </md-select>
+      </md-input-container>
       <md-card-actions layout="row" layout-align="end center">
         <md-button id="qa-add-item" ng-click="reset()" class="md-raised md-primary" aria-label="View">RESET</md-button>
         <md-button ng-if="!editing" id="qa-add-item" ng-click="save()" class="md-raised md-primary" aria-label="View">SAVE</md-button>
@@ -36,10 +43,10 @@
           <td flex="10">{{$index+1}}</td>
           <td flex="20">{{payment.paymentDate|date:'dd-MMM-yyyy'}}</td>
           <td flex="20">{{payment.amount}}</td>
-          <td flex="20">{{payment.isPaid}}</td>
+          <td flex="20">{{payment.paid}}</td>
           <td flex="10">
-            <span class="app-link" ng-click="edit(bill)">Edit</span>
-            <span class="app-link" ng-click="delete(bill)">Delete</span>
+            <span class="app-link" ng-click="edit(payment)">Edit</span>
+            <span class="app-link" ng-click="delete(payment)">Delete</span>
           </td>
         </tr>
       </tbody>

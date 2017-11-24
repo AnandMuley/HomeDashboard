@@ -10,6 +10,14 @@ app.controller('AddPaymentController',['$scope','PaymentResource','BillingResour
   $scope.payment = new PaymentResource();
   $scope.editing = false;
 
+  $scope.getTotal = function(){
+    let total = 0;
+    angular.forEach($scope.payments,function(value,key){
+      total+=value.amount;
+    });
+    return total;
+  }
+
   $scope.save = function(){
     $scope.payment.$save({},function(data){
       $scope.payment = new PaymentResource();
